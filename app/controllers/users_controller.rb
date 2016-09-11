@@ -21,9 +21,12 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    check_user(@user)
   end
   
   def update
+    @user = User.find(params[:id])
+    check_user(@user)
     if @user.update(user_params)
       flash[:success] = 'ユーザー情報を編集しました。'
       redirect_to root_path
@@ -41,5 +44,11 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def check_user(user)
+    if (@user != current_user)
+      redirect_to :root
+    end
   end
 end

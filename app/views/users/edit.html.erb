@@ -17,6 +17,12 @@
             <%= f.label :region %>
             <%= f.text_field :region %>
             
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation %>
+            
             <%= f.submit "Update my account", class: "btn btn-large btn-primary" %>
         <% end %>
     </div>
