@@ -1,27 +1,21 @@
 <div class="row">
-    <aside class="col-md-4">
-        <section class="user_info">
-            <h1>
-                <%= gravatar_for @user %>
-                <%= @user.name %>
-            </h1>
-        </section>
-    </aside>
-    <div class="col-md-8">
-        <% if @user.microposts.any? %>
-            <h3>Microposta(<%= @user.microposts.count %>)</h3>
-            <ol class="microposts">
-                <%= render @microposts %>
-            </ol>
-        <% end %>
-    </div>
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %><br />
+        <%= @user.age %><br />
+        <%= @user.region %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
+  </div>
 </div>
-=======
-<h1>プロフィール画面</h1>
-<table class="table table-striped">
-    <tr><td>画像</td><td><%= gravatar_for @user %></td></tr>
-    <tr><td>名前</td><td><%= @user.name %></td></tr>
-    <tr><td>年齢</td><td><%= @user.age %></td></tr>
-    <tr><td>アドレス</td><td><%= @user.email %></td></tr>
-    <tr><td>所在地</td><td><%= @user.region %></td></tr>
-</table>
