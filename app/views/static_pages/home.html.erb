@@ -3,6 +3,8 @@
         <aside class="col-md-4">
             <section class="user_info">
                 <%= render 'shared/user_info' %>
+                 <%= link_to 'followings', followings_user_path(current_user) %>
+                 <%= link_to 'followers', followers_user_path(current_user) %>
             </section>
             <section class="micropost_form">
                 <%= render 'shared/micropost_form' %>

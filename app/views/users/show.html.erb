@@ -6,6 +6,9 @@
         <%= @user.name %><br />
         <%= @user.age %><br />
         <%= @user.region %>
+        <%= link_to 'followings', followings_user_path(@user.id) %>
+        <%= link_to 'followers', followers_user_path(@user.id) %>
+
       </h1>
     </section>
   </aside>

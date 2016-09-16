@@ -1,6 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
   
+  # フォローしているユーザー
+  def followings
+    # 自分のユーザーIDを取得している
+    @user = User.find(params[:id])
+    # 自分のユーザーで紐付いているフォローしている人を検索
+    @following_users = @user.following_users
+  end
+  
+  # フォローされているユーザー
+  def followers
+    @user = User.find(params[:id])
+    # 自分のユーザーで紐付いているフォロワーを検索
+    @follower_users = @user.follower_users
+  end
+  
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
